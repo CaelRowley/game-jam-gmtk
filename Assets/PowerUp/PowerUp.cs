@@ -16,6 +16,6 @@ public class PowerUp : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collison)
     {
-        Debug.Log(collison);
+        Debug.Log("PowerUpCollision");
     }
 }

@@ -12,33 +12,45 @@ public class PlayerMove : MonoBehaviour {
     public string input1;
     public string input2;
 
+    public string action1;
+
     public float speed;
+    public float jumpSpeed;
+
+    private Rigidbody2D rb;
 
     void Start () {
         //gameObject.GetComponent<Renderer>().material.color = Color.red;
+
+        rb = gameObject.GetComponent<Rigidbody2D>();
     }
 	
-	// Update is called once per frame
 	void Update () {
+
         Vector3 moveDir = Vector3.zero;
         moveDir.x = Input.GetAxis(input1); 
-        moveDir.z = Input.GetAxis(input2);
-        Debug.Log(moveDir);
+        moveDir.y = Input.GetAxis("Jump");
 
         transform.position += moveDir * speed * Time.deltaTime;
-        //if (Input.GetKey(input1))
-        //{
-        //    //float step = 10 * Time.deltaTime;
-        //    //Vector3 position = transform.position;
-        //    //position.y = Mathf.Lerp(transform.position.y, mouse.transform.position.y, step);
-        //    //position.x = Mathf.Lerp(transform.position.x, mouse.transform.position.x, step);
+        Jump();
+    }
 
-        //    //transform.position = position;
-        //}
-        //else if (Input.GetKey(input2))
-        //{
-        //    Vector3 rotation = new Vector3(0.0f, 0.0f, direction);
-        //    transform.Rotate(rotation * Time.deltaTime);
-        //}
+    void Jump() {
+        if (Input.GetKeyDown(action1))
+        {
+            rb.velocity = new Vector3(0, jumpSpeed, 0);
+            Debug.Log("Jump");
+        }
+        else if (Input.GetKeyUp(action1))
+        {
+            if (rb.velocity.y > 0) {
+                rb.velocity = rb.velocity * .05f;
+            }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collison)
+    {
+        Debug.Log("collision");
     }
 }
