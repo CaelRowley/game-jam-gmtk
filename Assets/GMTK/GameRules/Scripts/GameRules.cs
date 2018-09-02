@@ -75,15 +75,11 @@ public class GameRules : MonoBehaviour {
     public void RestartLevel()
     {
         StartCoroutine(Wait());
-        
     }
 
     public void RestartMenu()
     {
-
         StartCoroutine(WaitMenu());
-        SceneManager.LoadScene("Menu");
-
     }
 
     public IEnumerator Wait()
@@ -95,6 +91,6 @@ public class GameRules : MonoBehaviour {
     public IEnumerator WaitMenu()
     {
         yield return new WaitForSeconds(7f);
-        SceneManager.LoadScene("Game - Copy");
+        SceneManager.LoadScene("Menu");
     }
 }
