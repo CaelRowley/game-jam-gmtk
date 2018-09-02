@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
+
 public class PlayerMove : MonoBehaviour {
 
     // Use this for initialization
@@ -17,6 +18,8 @@ public class PlayerMove : MonoBehaviour {
     public float speed;
     public float jumpSpeed;
 
+    public bool isPlayerOne = true;
+
     private Rigidbody2D rb;
     private bool jumping = false;
     private int jumpCount = 0;
@@ -30,9 +33,12 @@ public class PlayerMove : MonoBehaviour {
 	void Update () {
 
         Vector3 moveDir = Vector3.zero;
-        moveDir.x = Input.GetAxis(input1); 
+        moveDir.x = Input.GetAxis(input1);
+
+        float lockPos = 0;
 
         transform.position += moveDir * speed * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(lockPos, lockPos, lockPos);
         Jump();
         HandleSprite(moveDir);
 
@@ -65,7 +71,7 @@ public class PlayerMove : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collison)
     {
-        //Debug.Log("collision");
+        Debug.Log("collision");
         jumping = false;
     }
 }
