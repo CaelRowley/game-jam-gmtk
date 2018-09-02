@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameRules : MonoBehaviour {
 
@@ -24,26 +25,33 @@ public class GameRules : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(player1Score);
-        if (player1Score >= 3)
+        if (player1Score >= 4)
         {
-            Debug.Log("Winner");
-            PlayerPrefs.SetInt("player1Score", 0);
-            PlayerPrefs.SetInt("player2Score", 0);
-            player1Score = 0;
-            player2Score = 0;
+            PlayerPrefs.SetInt("player1Score", 1);
+            PlayerPrefs.SetInt("player2Score", 1);
+            player1Score = 1;
+            player2Score = 1;
+            RestartMenu();
         }
-        else if (player2Score >= 3)
+        else if (player2Score >= 4)
         {
-            Debug.Log("Winner2");
-            PlayerPrefs.SetInt("player1Score", 0);
-            PlayerPrefs.SetInt("player2Score", 0);
-            player1Score = 0;
-            player2Score = 0;
+            PlayerPrefs.SetInt("player1Score", 1);
+            PlayerPrefs.SetInt("player2Score", 1);
+            player1Score = 1;
+            player2Score = 1;
+            RestartMenu();
         }
 
-        score = GameObject.Find("Text");
+        score = GameObject.Find("TextScore");
         score.GetComponent<Text>().text = player1Score + " - " + player2Score;
+
+        if (player1Score == 1 || player2Score == 1)
+        {
+
+        }
+        else if (player1Score == 2 || player2Score == 2) {
+
+        }
     }
 
     private void LoadRounds() {
@@ -51,27 +59,42 @@ public class GameRules : MonoBehaviour {
             player1Score = PlayerPrefs.GetInt("player1Score");
             player2Score = PlayerPrefs.GetInt("player2Score");
         }
+
     }
 
     public void SaveRounds()
     {
         PlayerPrefs.SetInt("player1Score" , player1Score);
         PlayerPrefs.SetInt("player2Score", player2Score);
+    }
+
+    public void Winner(string lastPlayerVictory) {
+        PlayerPrefs.SetString("lastWinner", lastPlayerVictory);
+    }
+
+    public void RestartLevel()
+    {
+        StartCoroutine(Wait());
+        
+    }
+
+    public void RestartMenu()
+    {
+
+        StartCoroutine(WaitMenu());
+        SceneManager.LoadScene("Menu");
 
     }
 
-    //    gameRules = GameObject.Find("GameRules");
+    public IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(7f);
+        SceneManager.LoadScene("Game - Copy");
+    }
 
-    //    if (collison.gameObject.GetComponent<PlayerMove>().isPlayerOne)
-    //    {
-    //        gameRules.GetComponent<GameRules>().player1Score++;
-    //        gameRules.GetComponent<GameRules>().SaveRounds();
-    //    }
-    //    else
-    //    {
-    //        gameRules.GetComponent<GameRules>().player2Score++;
-    //        gameRules.GetComponent<GameRules>().SaveRounds();
-    //    }
-        
-    //    SceneManager.LoadScene("Game - Copy");
+    public IEnumerator WaitMenu()
+    {
+        yield return new WaitForSeconds(7f);
+        SceneManager.LoadScene("Game - Copy");
+    }
 }
