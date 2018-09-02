@@ -11,17 +11,28 @@ public class BackgroundMusic : MonoBehaviour {
 
     public string tag;
 
+    public static bool created = false;
+
     // Creates audio sources as children to Player
     private void Start() {
-        if(!GameObject.Find(tag)) {
+        if (!created)
+        {
+
             DontDestroyOnLoad(this.gameObject);
-            for(int i = 0; i < 2; i++) {
+            created = true;
+            for (int i = 0; i < 2; i++)
+            {
                 GameObject child = new GameObject(tag);
                 child.transform.parent = gameObject.transform;
                 audioSources[i] = child.AddComponent<AudioSource>();
                 audioSources[i].volume = volume;
             }
             nextLoopTime = AudioSettings.dspTime;
+
+        }
+        if (GameObject.Find(tag))
+        {
+            Destroy(gameObject);
         }
     }
 

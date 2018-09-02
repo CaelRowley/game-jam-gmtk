@@ -39,10 +39,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4635393496918972}
   - component: {fileID: 212887866776587940}
-  - component: {fileID: 114801797522381448}
   - component: {fileID: 95834621907559800}
   - component: {fileID: 61615887164966876}
   - component: {fileID: 50264296181708154}
+  - component: {fileID: 114340020872891998}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -189,7 +189,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114801797522381448
+--- !u!114 &114340020872891998
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -201,11 +201,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
-  input1: Horizontal
-  input2: Vertical
-  action1: w
-  speed: 2
-  jumpSpeed: 5
+  input1: Hor
+  input2: 
+  action1: 
+  speed: 0
+  jumpSpeed: 0
+  isPlayerOne: 1
 --- !u!124 &124591761381493070
 Behaviour:
   m_ObjectHideFlags: 1

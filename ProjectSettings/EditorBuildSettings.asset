@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/GMTK/Scenes/Menu.unity
+    guid: 0ad9c7605ed39d547a16a75a60a496eb
+  - enabled: 1
+    path: Assets/GMTK/Scenes/Game - Copy.unity
+    guid: 83d611a63af0933458b838a1737d26a3
