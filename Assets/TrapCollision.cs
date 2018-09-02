@@ -58,6 +58,10 @@ public class TrapCollision : MonoBehaviour
     void SpawnPlayer1Victory()
     {
         Debug.Log("VICTORY 1");
+        GameObject mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        GameObject newCamera = GameObject.FindGameObjectWithTag("Player1Camera");
+        mainCamera.gameObject.SetActive(false);
+        newCamera.gameObject.SetActive(true);
         Instantiate(player1Victory);
         GameObject gameRules = GameObject.Find("GameRules");
         gameRules.GetComponent<GameRules>().RestartLevel();
@@ -67,6 +71,10 @@ public class TrapCollision : MonoBehaviour
     void SpawnPlayer2Victory()
     {
         Debug.Log("VICTORY 2");
+        GameObject mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        GameObject newCamera = GameObject.FindGameObjectWithTag("Player2Camera");
+        mainCamera.gameObject.SetActive(false);
+        newCamera.gameObject.SetActive(true);
         Instantiate(player2Victory);
         GameObject gameRules = GameObject.Find("GameRules");
         gameRules.GetComponent<GameRules>().RestartLevel();
