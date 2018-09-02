@@ -65,7 +65,7 @@ public class PlayerMove : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collison)
     {
-        Debug.Log("collision");
+        //Debug.Log("collision");
         jumping = false;
     }
 }

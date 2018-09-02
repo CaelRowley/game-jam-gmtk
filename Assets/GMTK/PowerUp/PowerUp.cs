@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public GameObject trapToSpawn;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -17,5 +19,6 @@ public class PowerUp : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collison)
     {
         Debug.Log("Winner!!!!");
+        Instantiate(trapToSpawn);
     }
 }
