@@ -139,6 +139,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4572914090042684}
   - component: {fileID: 61924673603197920}
+  - component: {fileID: 114732039571017704}
+  - component: {fileID: 114666303984991058}
   m_Layer: 0
   m_Name: spiketrapTopPlatform(Clone)
   m_TagString: Untagged
@@ -545,6 +547,37 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114666303984991058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1447575249472058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 574287f61a96da14d96c9767f9327984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1Victory: {fileID: 1520051749436848, guid: c84a7d75633985a4e986e1572ed9b8d1,
+    type: 2}
+  player2Victory: {fileID: 1420345593398344, guid: 75c038b8b1aaa7f43ae581bb2c535504,
+    type: 2}
+  player1Death: {fileID: 1520051749436848, guid: 408b7c87533bc1a4ca14cfcd5a4572cf,
+    type: 2}
+  player2Death: {fileID: 1420345593398344, guid: a827dc2417be9af43ad5d7273184582d,
+    type: 2}
+--- !u!114 &114732039571017704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1447575249472058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e149180d883954f9c2c572d0e029cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifespan: 5
 --- !u!212 &212197272840601042
 SpriteRenderer:
   m_ObjectHideFlags: 1
